@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class EnergyCollect : MonoBehaviour
 {
-    // Global variable
-    // Player starts with 50 Enery
-    public static int energyTotal = 50;
+    public static int energyTotal;
 
     private void OnMouseDown()
     {
         // Collect Energy
         energyTotal += 50;
+        Debug.Log("Engery: " + energyTotal);
 
         // Destroy Energy object after collecting
         Destroy(gameObject);
