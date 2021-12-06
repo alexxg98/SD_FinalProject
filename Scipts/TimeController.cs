@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class TimeController : MonoBehaviour
 {
+    // GameManager.gameMF gf = new GameManager.gameMF();
     public int countDownTime;
     public TextMeshProUGUI timerUI;
     // Start is called before the first frame update
@@ -26,9 +27,9 @@ public class TimeController : MonoBehaviour
         yield return new WaitForSeconds(1f);
         if (countDownTime == 0)
         {
-            GameManager.EndGame();
+            FindObjectOfType<GameManager>().EndGame();
         }
-     
+
     }
 
 }
