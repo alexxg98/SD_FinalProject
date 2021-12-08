@@ -29,9 +29,11 @@ public class Beam : MonoBehaviour
     }
     void HitTarget()
     {
-        Destroy(gameObject);
+        Destroy(gameObject, 0f);
         Destroy(target.gameObject);
+        
         Debug.Log("Hit");
+        // Debug.Log("Confirm #: " + AlienSpawn.randNum);
     }
     
 }

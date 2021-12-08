@@ -10,8 +10,8 @@ public class Robot : MonoBehaviour
     public string enemyTag = "Alien";
     private Transform target;
 
-    public float range = 15f;
-    public float beamRate = 1f;
+    public float range = 2f;
+    public float beamRate = 2f;
     private float beamCoolDown = 0f;
 
     public GameObject beamPrefab;
@@ -59,5 +59,9 @@ public class Robot : MonoBehaviour
         Debug.Log("Shoot!");
     }
 
-
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, range);
+    }
 }
