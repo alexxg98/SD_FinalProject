@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Beam : MonoBehaviour
 {
     private Transform target;
-    public float speed = 1f;
+    public float speed = 3f;
 
     public void FindTarget(Transform target)
     {
