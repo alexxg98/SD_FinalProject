@@ -9,7 +9,9 @@ public class SelectRobot : MonoBehaviour
     public static GameObject selectedRobot;
     public Button robot_button;
     public GameObject insignificantFundsCanvas;
+    public GameObject selectCast;
     public static int robotCost;
+    public static GameObject clickedCast;
     [SerializeField] int setCost;
 
     private void Start()
@@ -19,11 +21,16 @@ public class SelectRobot : MonoBehaviour
 
     void OnClickTask()
     {
+        robotCost = setCost;
+
         if (EnergyCollect.energyTotal >= robotCost)
         {
             selectedRobot = robotPrefab;
-            robotCost = setCost;
-            Debug.Log("Robot Slected: " + selectedRobot);
+            clickedCast = selectCast;
+            clickedCast.SetActive(true);
+            
+            Debug.Log("Robot Selected: " + selectedRobot);
+            Debug.Log("Robot Cost: " + robotCost);
         }
         else
         {

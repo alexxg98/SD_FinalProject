@@ -12,6 +12,11 @@ public class BuyRobot : MonoBehaviour
             EnergyCollect.energyTotal -= robotCost;
             Spawn();
             Debug.Log("Robot Spawned");
+
+            // "Deactivate" button
+            SelectRobot.selectedRobot = null;
+            SelectRobot.robotCost = 1000;
+            SelectRobot.clickedCast.SetActive(false);
         }
         else
         {
