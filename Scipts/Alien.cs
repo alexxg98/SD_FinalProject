@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -25,6 +25,7 @@ public class Alien : MonoBehaviour
     {
         if (wavePointIndex >= Waypoints.points.Length - 1)
         {
+            HomeBase.hp -= 10;
             Destroy(gameObject);
             return;
 
