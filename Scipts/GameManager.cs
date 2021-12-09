@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject gameOverMenu;
+    public GameObject[] gameOverUI;
     public static bool gameOver = false;
     public static bool gameHalted = false;
 
@@ -32,8 +32,15 @@ public class GameManager : MonoBehaviour
         {
             gameOver = true;
             Debug.Log("Game Over");
-
-            gameOverMenu.SetActive(true);
+            if (FindObjectOfType<TimeController>().countDownTime <= 0)
+            {
+                gameOverUI[0].SetActive(true);
+            }
+            else
+            {
+                gameOverUI[1].SetActive(true);
+            }
+            
             Time.timeScale = 0f;
             gameHalted = true;
         }
