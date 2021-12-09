@@ -4,30 +4,25 @@ using UnityEngine;
 
 public class BuyRobot : MonoBehaviour
 {
-    //public static int robotPick;
-    public GameObject atackerPrefab;
-    int clickCount = 0;
-    public void AttackerBuy()
+    private void OnMouseDown()
     {
-        Debug.Log("Attacker clicked");
-        
-        if (clickCount > 0)
+        int robotCost = SelectRobot.robotCost;
+        if (EnergyCollect.energyTotal >= robotCost)
         {
+            EnergyCollect.energyTotal -= robotCost;
             Spawn();
-            clickCount = 0;
+            Debug.Log("Robot Spawned");
         }
         else
         {
-            clickCount++;
+            return;
         }
-
-        
     }
 
     void Spawn()
     {
         Vector3 spawnPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         spawnPosition.z = 0.0f;
-        Instantiate(atackerPrefab, spawnPosition, Quaternion.identity);
+        Instantiate(SelectRobot.selectedRobot, spawnPosition, Quaternion.identity);
     }
 }

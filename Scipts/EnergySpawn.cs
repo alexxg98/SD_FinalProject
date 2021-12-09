@@ -8,12 +8,13 @@ public class EnergySpawn : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Spawn first Energy after 5 secs, and every 5 secs afterwards
-        InvokeRepeating("Spawn", 5, 5);
+        // Spawn first Energy after 4 secs, and every 5 secs afterwards
+        InvokeRepeating("Spawn", 4, 5);
     }
 
     void Spawn()
     {
-        Instantiate(prefab, transform.position, Quaternion.identity);
+        GameObject energy = Instantiate(prefab, transform.position, Quaternion.identity);
+        Destroy(energy, 7);
     }
 }
