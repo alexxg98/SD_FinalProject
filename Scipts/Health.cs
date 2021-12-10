@@ -5,13 +5,20 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     [SerializeField]
-    int hp = 5;
+    int hp = 30;
 
-    public void DoDamage(int damage)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        hp -= damage;
+        hp -= 10;
+    }
 
-        // Destroy if lose all health (died)
+    void Update()
+    {
+        CheckHealth();
+        Debug.Log("Health = " + hp);
+    }
+    public void CheckHealth()
+    {
         if (hp <= 0)
         {
             Destroy(gameObject);

@@ -1,9 +1,10 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Alien : MonoBehaviour
 {
+    public static int hp = 30;
     public float speed = 2f;
     private Transform destination;
     private int wavePointIndex = 0;
