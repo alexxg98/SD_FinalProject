@@ -22,7 +22,7 @@ public class TimeController : MonoBehaviour
     {
         while (countDownTime > 0)
         {
-            if (countDownTime == 30)
+            if (countDownTime == 35)
             {
                 Debug.Log("Spawn!");
                 FindObjectOfType<Waves>().SpawnWave();
