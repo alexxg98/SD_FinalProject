@@ -8,7 +8,7 @@ public class LaneActivate : MonoBehaviour
     // Update is called once per frame
     void Start()
     {
-        InvokeRepeating("RandComp", 6, 10);
+        InvokeRepeating("RandComp", 5, AlienSpawn.randSpawn-1);
     }
 
     public void Reset()
@@ -18,23 +18,24 @@ public class LaneActivate : MonoBehaviour
         Lanes[2].SetActive(false);
         Lanes[3].SetActive(false);
         Lanes[4].SetActive(false);
+        RNG.Rngenerator();
     }
     void RandComp()
     {
         Reset();
-        if (AlienSpawn.randLane == 0)
+        if (RNG.randLane == 0)
         {
             Lanes[0].SetActive(true);
         }
-        else if(AlienSpawn.randLane == 1)
+        else if(RNG.randLane == 1)
         {
             Lanes[1].SetActive(true);
         }
-        else if (AlienSpawn.randLane == 2)
+        else if (RNG.randLane == 2)
         {
             Lanes[2].SetActive(true);
         }
-        else if (AlienSpawn.randLane == 3)
+        else if (RNG.randLane == 3)
         {
             Lanes[3].SetActive(true);
         }
@@ -42,7 +43,6 @@ public class LaneActivate : MonoBehaviour
         {
             Lanes[4].SetActive(true);
         }
-        // Reset();
     }
    
 }

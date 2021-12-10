@@ -4,16 +4,12 @@ using UnityEngine;
 
 public class AlienSpawn : MonoBehaviour
 {
-    public static int randLane;
-    public int randSpawn;
     public GameObject alienPrefab;
+    public static int randSpawn;
     // Start is called before the first frame update
     void Start()
     {
-        randLane = Random.Range(0, FindObjectOfType<LaneActivate>().Lanes.Length);
-        Debug.Log("Lane Index #: " + randLane);
-        randSpawn = Random.Range(5, 10);
-        Debug.Log("Random Spawn Time: " + randSpawn);
+        randSpawn = Random.Range(8, 15);
         // Spawn first Alien after 6 secs, and every random secs afterwards
         InvokeRepeating("Spawn", 6, randSpawn);
         
@@ -24,8 +20,4 @@ public class AlienSpawn : MonoBehaviour
         Instantiate(alienPrefab, transform.position, Quaternion.identity);
         
     }
-
-
-
-
 }
