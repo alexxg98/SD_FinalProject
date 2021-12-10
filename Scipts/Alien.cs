@@ -17,7 +17,7 @@ public class Alien : MonoBehaviour
     {
         Vector3 dir = destination.position - transform.position;
         transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
-        if (Vector3.Distance(transform.position, destination.position) <= 0.2f)
+        if (Vector3.Distance(transform.position, destination.position) <= 0.4f)
         {
             GetNextWayPoint();
         }
