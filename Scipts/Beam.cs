@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 public class Beam : MonoBehaviour
 {
@@ -30,7 +30,15 @@ public class Beam : MonoBehaviour
     void HitTarget()
     {
         Destroy(gameObject, 0f);
-        Destroy(target.gameObject);
+        
+        if (Alien.hp <= 0)
+        {
+            Destroy(target.gameObject);
+            Alien.hp = 30;
+        }
+        else {
+            Alien.hp -= 10;
+        }
         
         Debug.Log("Hit");
         // Debug.Log("Confirm #: " + AlienSpawn.randNum);
