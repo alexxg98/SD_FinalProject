@@ -5,12 +5,14 @@ using UnityEngine;
 public class LaneActivate : MonoBehaviour
 {
     public GameObject[] Lanes;
-    // Update is called once per frame
-    void Start()
-    {
-        InvokeRepeating("RandComp", 5, AlienSpawn.randSpawn-1);
-    }
+    private int randLane;
 
+    public void Rng()
+    {
+        System.Random r = new System.Random();
+        randLane = r.Next(0, 5);
+        Debug.Log("Lane Index #: " + randLane);
+    }
     public void Reset()
     {
         Lanes[0].SetActive(false);
@@ -18,24 +20,24 @@ public class LaneActivate : MonoBehaviour
         Lanes[2].SetActive(false);
         Lanes[3].SetActive(false);
         Lanes[4].SetActive(false);
-        RNG.Rngenerator();
+        Rng();
     }
-    void RandComp()
+    public void RandComp()
     {
         Reset();
-        if (RNG.randLane == 0)
+        if (randLane == 0)
         {
             Lanes[0].SetActive(true);
         }
-        else if(RNG.randLane == 1)
+        else if (randLane == 1)
         {
             Lanes[1].SetActive(true);
         }
-        else if (RNG.randLane == 2)
+        else if (randLane == 2)
         {
             Lanes[2].SetActive(true);
         }
-        else if (RNG.randLane == 3)
+        else if (randLane == 3)
         {
             Lanes[3].SetActive(true);
         }
@@ -44,5 +46,4 @@ public class LaneActivate : MonoBehaviour
             Lanes[4].SetActive(true);
         }
     }
-   
 }
