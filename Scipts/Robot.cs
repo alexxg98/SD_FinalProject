@@ -1,67 +1,60 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Robot : MonoBehaviour
 {
-    public static GameObject robotPick;
-    public static int robotCost;
-
-    public string enemyTag = "Alien";
+    public GameObject beamPrefab;
     private Transform target;
 
     public float range = 2f;
     public float beamRate = 2f;
     private float beamCoolDown = 0f;
 
-    public GameObject beamPrefab;
-    public Transform beamLocation;
-
     void Start()
     {
-        InvokeRepeating("UpdateTarget", 0f, .5f);
-    }
-    void UpdateTarget()
-    {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
-        float shortestDistance = Mathf.Infinity;
-        GameObject nearestEnemy = null;
-        foreach (GameObject enemy in enemies)
-        {
-            float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-            if (distanceToEnemy < shortestDistance)
-            {
-                shortestDistance = distanceToEnemy;
-                nearestEnemy = enemy;
-            }
-        }
-        if (nearestEnemy != null && shortestDistance <= range) target = nearestEnemy.transform;
-        else target = null;
+        // call FindTarget every second
+        InvokeRepeating("FindTargets", 0f, 1f);
     }
 
     void Update()
     {
+        // update keeps track of incoming targets
         if (target == null) return;
         if (beamCoolDown <= 0f)
         {
             ShootBeam();
-            beamCoolDown = 1f/ beamRate; // reset back to beamRate
+            beamCoolDown = 1f / beamRate; // reset back to beamRate
         }
         beamCoolDown -= Time.deltaTime;
     }
 
+    void FindTargets()
+    {
+        GameObject[] aliens = GameObject.FindGameObjectsWithTag("Alien");
+        GameObject targetAlien = null;
+        float closestTarget = Mathf.Infinity;
+        // determine distance for all aliens within range
+        foreach (GameObject alien in aliens)
+        {
+            float alienDistance = Vector3.Distance(transform.position, alien.transform.position);
+            if (alienDistance <= closestTarget)
+            {
+                closestTarget = alienDistance;
+                targetAlien = alien; // look on target when conditions met
+            }
+        }
+        // lock on target if within range and target isn't null
+        if (targetAlien != null && closestTarget <= range) target = targetAlien.transform;
+        else target = null;
+    }
+
     void ShootBeam()
     {
-        GameObject beamObj = (GameObject)Instantiate(beamPrefab, beamLocation.position, Quaternion.identity);
+        GameObject beamObj = (GameObject)Instantiate(beamPrefab, transform.position, Quaternion.identity);
         Beam beam = beamObj.GetComponent<Beam>();
-
-        if (beam != null)  beam.FindTarget(target);
-        Debug.Log("Shoot!");
+        if (beam != null) beam.FindTarget(target);
+        //Debug.Log("Shoot!");
     }
 
-    void OnDrawGizmos()
-    {
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position, range);
-    }
 }
