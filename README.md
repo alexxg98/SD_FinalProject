@@ -41,3 +41,11 @@ Energy ![Energy](https://github.com/alexxg98/SD_FinalProject/blob/main/Assets/En
 * [Unity](https://unity.com/download) (2018.4.33f1)
 * [Pixel Art](https://www.pixilart.com/) and its gallery
 
+### To Play/Download
+In order to change/update the code, you must have Unity with the version listed above to ensure the least build issues.
+
+You may either:
+1. Download or copy individual files into your unity project game.
+2. Download the entire [zip folder](https://github.com/alexxg98/SD_FinalProject/blob/main/Robots%20vs%20Aliens.zip) and extract the files. Place or copy these files into your unity project game.
+3. Download the [build folder](https://github.com/alexxg98/SD_FinalProject/blob/main/Robots_vs_Aliens_Build.zip) and extract the folder. Run the `Robots vs Aliens.exe` to start playing the game.
+
