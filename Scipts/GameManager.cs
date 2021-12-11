@@ -17,15 +17,26 @@ public class GameManager : MonoBehaviour
         {
             if (gameHalted)
             {
-                ReplayGame();
-            }
-            else
+                ResumeGame();
+            } else
             {
-                EndGame();
+                PauseGame(); 
             }
+
         }
     }
-
+    public void ResumeGame()
+    {
+        gameOverUI[2].SetActive(false);
+        Time.timeScale = 1f;
+        gameHalted = false;
+    }
+    public void PauseGame()
+    {
+        gameOverUI[2].SetActive(true);
+        Time.timeScale = 0f;
+        gameHalted = true;
+    }
     public void EndGame()
     {
         if (gameOver == false)
@@ -40,21 +51,16 @@ public class GameManager : MonoBehaviour
             {
                 gameOverUI[1].SetActive(true);
             }
-            
+
             Time.timeScale = 0f;
             gameHalted = true;
         }
-        
     }
 
     public void ReplayGame()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("PlayGame");
         Time.timeScale = 1f;
         gameHalted = false;
     }
-    
- 
-    
-
 }
