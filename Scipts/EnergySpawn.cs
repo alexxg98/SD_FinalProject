@@ -9,12 +9,12 @@ public class EnergySpawn : MonoBehaviour
     void Start()
     {
         // Spawn first Energy after 4 secs, and every 5 secs afterwards
-        InvokeRepeating("Spawn", 4, 5);
+        InvokeRepeating("Spawn", 4, 9);
     }
 
     void Spawn()
     {
         GameObject energy = Instantiate(prefab, transform.position, Quaternion.identity);
-        Destroy(energy, 7);
+        Destroy(energy, 7); // Destroy energy if not collected after 7 secs
     }
 }

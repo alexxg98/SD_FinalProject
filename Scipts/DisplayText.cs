@@ -6,12 +6,14 @@ using TMPro;
 public class DisplayText : MonoBehaviour
 {
     public TextMeshProUGUI energyText;
+    public TextMeshProUGUI coilText;
 
     // Start is called before the first frame update
     void Start()
     {
-        // Player starts with 50 Enery
+        // Player starts with 50 Enery, 0 Coil
         EnergyCollect.energyTotal = 50;
+        CoilCollect.coilCollection = 0;
         UpdateUI();
     }
 
@@ -24,5 +26,6 @@ public class DisplayText : MonoBehaviour
     void UpdateUI()
     {
         energyText.text = EnergyCollect.energyTotal + "";
+        coilText.text = CoilCollect.coilCollection + "";
     }
 }

@@ -22,9 +22,10 @@ public class TimeController : MonoBehaviour
     {
         while (countDownTime > 0)
         {
-            if (countDownTime == 35)
+            // Spawn wave 2
+            if (countDownTime == 80)
             {
-                Debug.Log("Spawn!");
+                //Debug.Log("Spawn!");
                 FindObjectOfType<Waves>().SpawnWave();
             }
             timerUI.text = "Time: " + countDownTime.ToString();
@@ -38,6 +39,6 @@ public class TimeController : MonoBehaviour
         {
             FindObjectOfType<GameManager>().EndGame();
         }
-        
+
     }
 }

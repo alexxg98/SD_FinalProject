@@ -10,7 +10,7 @@ public class EnergyCollect : MonoBehaviour
     {
         // Collect Energy
         energyTotal += 50;
-        Debug.Log("Engery: " + energyTotal);
+        //Debug.Log("Engery: " + energyTotal);
 
         // Destroy Energy object after collecting
         Destroy(gameObject);

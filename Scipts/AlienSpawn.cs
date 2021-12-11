@@ -11,9 +11,9 @@ public class AlienSpawn : MonoBehaviour
     {
         //randSpawn = GetRandomNum();
         // Debug.Log("Random Spawn Time: " + randSpawn);
-        // Spawn first Alien after 6 secs, and every random secs afterwards
+        // Spawn first Alien after 15 secs, and every random secs afterwards
         //InvokeRepeating("Spawn", 6, randSpawn);
-        Invoke("Spawn", GetRandomNum());
+        Invoke("Spawn", 15);
     }
 
     void Spawn()
@@ -26,7 +26,7 @@ public class AlienSpawn : MonoBehaviour
     int GetRandomNum()
     {
         randSpawn = Random.Range(5, 15);
-        Debug.Log("Random Spawn Time: " + randSpawn);
+        //Debug.Log("Random Spawn Time: " + randSpawn);
         return randSpawn; 
     }
 }

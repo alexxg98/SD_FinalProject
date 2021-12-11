@@ -21,6 +21,8 @@ public class SelectRobot : MonoBehaviour
 
     void OnClickTask()
     {
+        // If sufficient funds, set selected robot as the prefab of button
+        // Else show insufficient funds
         robotCost = setCost;
 
         if (EnergyCollect.energyTotal >= robotCost)
@@ -29,14 +31,14 @@ public class SelectRobot : MonoBehaviour
             clickedCast = selectCast;
             clickedCast.SetActive(true);
             
-            Debug.Log("Robot Selected: " + selectedRobot);
-            Debug.Log("Robot Cost: " + robotCost);
+            //Debug.Log("Robot Selected: " + selectedRobot);
+            //Debug.Log("Robot Cost: " + robotCost);
         }
         else
         {
             insignificantFundsCanvas.SetActive(true);
-            Debug.Log("Insufficient Funds");
-            StartCoroutine(WaitDisable(2));
+            //Debug.Log("Insufficient Funds");
+            StartCoroutine(WaitDisable(2)); // Wait 2 seconds before closing text
         }
     }
 

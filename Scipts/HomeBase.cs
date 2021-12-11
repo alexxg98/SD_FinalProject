@@ -4,18 +4,15 @@ using UnityEngine;
 
 public class HomeBase : MonoBehaviour
 {
-    public static int hp = 30;
-    void Update()
+    public static int homebaseHP = 100;
+    
+    public static void CheckHealth()
     {
-        CheckHealth();
-        Debug.Log("Health = " + hp);
-    }
-    public void CheckHealth()
-    {
-        if (hp <= 0)
+        //Debug.Log(homebaseHP);
+        if (homebaseHP <= 0)
         {
             FindObjectOfType<GameManager>().EndGame();
+            homebaseHP = 100;
         }
     }
-    
 }

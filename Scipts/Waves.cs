@@ -7,6 +7,7 @@ public class Waves : MonoBehaviour
     public GameObject[] AlienWaves;
     public void SpawnWave()
     {
+        // Activate second wave of aliens
         AlienWaves[1].SetActive(true);
     }
 

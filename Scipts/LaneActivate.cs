@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LaneActivate : MonoBehaviour
 {
+    // Insert array of lanes
     public GameObject[] Lanes;
     private int randLane;
 
@@ -11,7 +12,7 @@ public class LaneActivate : MonoBehaviour
     {
         System.Random r = new System.Random();
         randLane = r.Next(0, 5);
-        Debug.Log("Lane Index #: " + randLane);
+        //Debug.Log("Lane Index #: " + randLane);
     }
     public void Reset()
     {
@@ -24,6 +25,7 @@ public class LaneActivate : MonoBehaviour
     }
     public void RandComp()
     {
+        // Select random lane for alien to traverse
         Reset();
         if (randLane == 0)
         {

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,9 +18,10 @@ public class GameManager : MonoBehaviour
             if (gameHalted)
             {
                 ResumeGame();
-            } else
+            }
+            else
             {
-                PauseGame(); 
+                PauseGame();
             }
 
         }
@@ -42,8 +43,12 @@ public class GameManager : MonoBehaviour
         if (gameOver == false)
         {
             gameOver = true;
-            Debug.Log("Game Over");
+            //Debug.Log("Game Over");
             if (FindObjectOfType<TimeController>().countDownTime <= 0)
+            {
+                gameOverUI[0].SetActive(true);
+            }
+            else if (CoilCollect.coilCollection >= 5)
             {
                 gameOverUI[0].SetActive(true);
             }
@@ -62,5 +67,11 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("PlayGame");
         Time.timeScale = 1f;
         gameHalted = false;
+        gameOver = false;
+    }
+
+    public void QuitGame()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }
