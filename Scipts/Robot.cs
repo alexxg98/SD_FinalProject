@@ -45,7 +45,7 @@ public class Robot : MonoBehaviour
             }
         }
         // lock on target if within range and target isn't null
-        if (targetAlien != null && closestTarget <= range) target = targetAlien.transform;
+        if (closestTarget <= range && targetAlien != null) target = targetAlien.transform;
         else target = null;
     }
 
