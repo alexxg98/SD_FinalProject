@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 242939128685403866}
   - component: {fileID: 8081260455905930964}
   - component: {fileID: 61829983773837550}
-  - component: {fileID: 114469312855444850}
   - component: {fileID: 114536404208950766}
+  - component: {fileID: 114843396307367888}
   m_Layer: 0
   m_Name: Robot_0
   m_TagString: Robot
@@ -30,8 +30,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -291, y: -233, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 6378751894712804813}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -93,7 +92,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -109,19 +108,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &114469312855444850
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5084762431967393044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0598ad05283970c4791282a543320ba7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 30
 --- !u!114 &114536404208950766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,39 +120,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed3eca5cc4bd1634f982c5526083619f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyTag: Alien
-  range: 2
-  beamRate: 2
   beamPrefab: {fileID: 5033816053001813250, guid: e13c519ffacc055468187e0a10277e83,
     type: 3}
-  beamLocation: {fileID: 6378751894712804813}
---- !u!1 &6689433926318577599
-GameObject:
+  range: 8
+  beamRate: 0.5
+--- !u!114 &114843396307367888
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6378751894712804813}
-  m_Layer: 0
-  m_Name: BeamLocation
-  m_TagString: Untagged
-  m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6378751894712804813
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6689433926318577599}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.201, y: 0.338, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 242939128685403866}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_GameObject: {fileID: 5084762431967393044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0598ad05283970c4791282a543320ba7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

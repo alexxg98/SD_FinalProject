@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 4672603646399286905}
   - component: {fileID: 4672603646399286904}
   - component: {fileID: 4672603646399286908}
-  - component: {fileID: 4672603646399286907}
   - component: {fileID: 4672603646399286909}
+  - component: {fileID: 114046883621659128}
   m_Layer: 0
   m_Name: PowerPlant
   m_TagString: Robot
@@ -112,7 +112,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -128,19 +128,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &4672603646399286907
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4672603646399286903}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0598ad05283970c4791282a543320ba7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 20
 --- !u!114 &4672603646399286909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,3 +141,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 7615582630693015042, guid: 321478ac11546ed43b44995a2d207244, type: 3}
+--- !u!114 &114046883621659128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4672603646399286903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0598ad05283970c4791282a543320ba7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
